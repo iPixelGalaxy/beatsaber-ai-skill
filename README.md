@@ -1,3 +1,5 @@
+To be completely clear, this could be completely wrong, if some modder comes across this and wants to PR some suggestions, I'll happily take em if I've heard of you haha :)
+
 # Beat Saber AI Skill
 
 Opt-in Codex skill for Beat Saber modding references.
@@ -40,6 +42,62 @@ From the skill root:
 ```
 
 Use `-InstancesRoot <path>` only when auto-discovery is wrong or unavailable.
+
+## Installing Locally
+
+From a local checkout:
+
+```powershell
+.\install.ps1
+```
+
+By default this installs to `%USERPROFILE%\.codex\skills\beatsaber`, or `$env:CODEX_HOME\skills\beatsaber` when `CODEX_HOME` is set. On Linux/macOS, the default is `~/.codex/skills/beatsaber`, or `$CODEX_HOME/skills/beatsaber` when `CODEX_HOME` is set.
+
+Rerun the installer to update an existing install. Existing installs are moved to a timestamped backup by default.
+
+To replace without a backup:
+
+```powershell
+.\install.ps1 -NoBackup
+```
+
+## Install From GitHub
+
+Repository URL:
+
+```text
+https://github.com/iPixelGalaxy/beatsaber-ai-skill.git
+```
+
+Windows PowerShell:
+
+```powershell
+& ([scriptblock]::Create((Invoke-RestMethod 'https://raw.githubusercontent.com/iPixelGalaxy/beatsaber-ai-skill/master/install.ps1'))) -RepoUrl 'https://github.com/iPixelGalaxy/beatsaber-ai-skill.git'
+```
+
+PowerShell on Linux/macOS:
+
+```powershell
+& ([scriptblock]::Create((Invoke-RestMethod 'https://raw.githubusercontent.com/iPixelGalaxy/beatsaber-ai-skill/master/install.ps1'))) -RepoUrl 'https://github.com/iPixelGalaxy/beatsaber-ai-skill.git'
+```
+
+Linux/macOS Bash:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/iPixelGalaxy/beatsaber-ai-skill/master/install.sh | bash -s -- --repo-url 'https://github.com/iPixelGalaxy/beatsaber-ai-skill.git'
+```
+
+All three commands are rerunnable. Rerunning installs the latest repository contents and backs up the previous install. Add `-NoBackup` for PowerShell or `--no-backup` for Bash to replace without keeping a backup.
+
+Install a specific branch, tag, or commit:
+
+```powershell
+.\install.ps1 -RepoUrl 'https://github.com/iPixelGalaxy/beatsaber-ai-skill.git' -Ref '<branch-or-tag-or-commit>'
+```
+
+```bash
+./install.sh --repo-url 'https://github.com/iPixelGalaxy/beatsaber-ai-skill.git' --ref '<branch-or-tag-or-commit>'
+```
 
 ## Mod-Specific Notes
 
