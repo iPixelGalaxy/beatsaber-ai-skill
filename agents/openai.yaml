@@ -1,0 +1,4 @@
+interface:
+  display_name: "Beat Saber Modding"
+  short_description: "Opt-in Beat Saber version and modding reference."
+  default_prompt: "$beatsaber help me update a Beat Saber mod for the target game version"
